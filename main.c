@@ -44,21 +44,19 @@ int main(int argc, char *argv[]) {
         "/projects/c/get_cwd",
         "/projects/c/ecart_type",
     };
-    char new_cwd[500] = "";
-    int  len          = 1;
     for ( int i = 0; i < 50 && strcmp("", sources[i]) != 0; i++ ) {
       // TODO: project is basename of sources[i]
       char project[500] = "tttttttt";
       // lastname is ""${cwd##${s}/}"
       char lastname[500] = "kkkk";
       if ( strcmp(cwd, sources[i]) == 0 ) {
-        strcpy(cwd, "par");
-        /* strcat(strcat(strcat(cwd, "%B%F{3}"), project), " %B%F{1}>%B%F{2}>%B%F{3}>"); */
+        strcpy(cwd, "");
+        strcat(strcat(strcat(cwd, "%B%F{3}"), project), " %B%F{1}>%B%F{2}>%B%F{3}>");
       } else if ( strncmp(sources[i], cwd, strlen(sources[i])) == 0 ) {
+        strcpy(cwd, "");
         strcpy(cwd, strcat(strcat(strcat(strcat(strcat(cwd,"%B%F{3}"), project), ":%B%F{7}"), lastname), " %B%F{1}>%B%F{2}>%B%F{3}>"));
       }
     }
-    printf("strlen %d\n", len);
   }
   printf("%s\n", cwd);
 
